@@ -1,19 +1,15 @@
-import express from "express"; 
-import { selectUsuarios, selectUsuario } from "./bd.js"; 
-import dotenv from "dotenv";
-dotenv.config();    
+import express from "express";
+const app = express();
+const port = 3000;
 
-const app = express();              
-const port = 3000;                  
-
-app.get("/", (req, res) => {        
+app.get("/", (req, res) => {
   res.json({
     nome: "Pedro Henrique Mendes de Castro",
   });
   console.log("Rota / solicitada");
 });
 
-app.listen(port, () => {            
+app.listen(port, () => {
   console.log(`Serviço escutando na porta:  ${port}`);
 });
 
@@ -30,6 +26,7 @@ app.get("/usuarios", async (req, res) => {
   }
 });
 
+import { selectUsuarios, selectUsuario } from "./bd.js";
 
 app.get("/usuario/:id", async (req, res) => {
   console.log("Rota GET /usuario solicitada");
