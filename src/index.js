@@ -1,10 +1,8 @@
 import roteadorUsuario from "./routes/usuario.js";
+import roteadorLogin from "./routes/login.js";
 import dotenv from "dotenv";
 import express from "express";
-import roteadorLogin from "./routes/login.js";
-
 dotenv.config();
-
 
 const app = express();
 const port = 3000;
@@ -22,3 +20,4 @@ app.listen(port, () => {
 
 app.use(roteadorUsuario);
 app.use(roteadorLogin);
+app.use(express.urlencoded({ extended: true }));
